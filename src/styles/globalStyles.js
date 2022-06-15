@@ -8,6 +8,24 @@ const GlobalStyles = createGlobalStyle`
    outline:none;
    border:none;
  }
+
+ a {
+  color: inherit; 
+    text-decoration: none;
+}
+
+ button:hover {
+  cursor: pointer;
+ }
+
+ .sr-only {
+  position: absolute;
+  z-index: -100;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+ }
 `;
 
 export default GlobalStyles;

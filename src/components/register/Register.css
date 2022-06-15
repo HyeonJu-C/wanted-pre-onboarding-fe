@@ -1,0 +1,21 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 576px;
+  padding: 2em 1em;
+  margin-bottom: 2em;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+.register-title {
+  display: block;
+  margin-right: 0.5em;
+}
+
+.register-link {
+  color: #3f51b5;
+  font-weight: 700;
+}

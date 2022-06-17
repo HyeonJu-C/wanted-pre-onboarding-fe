@@ -3,7 +3,7 @@ import './Login.css';
 
 const Login = () => {
   return (
-    <aside className="login-container">
+    <aside className="login">
       <h1 className="login-title sr-only">Logiin</h1>
       <form className="login-form">
         <input

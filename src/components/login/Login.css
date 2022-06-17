@@ -1,10 +1,17 @@
-.login-container {
+.login {
   margin-bottom: 2em;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
+}
+
+.login-form::after {
+  content: '또는';
+  margin: 1.5em 0;
+  text-align: center;
+  color: grey;
 }
 
 .login-id,
@@ -16,11 +23,6 @@
   margin-bottom: 0.5em;
 }
 
-.login-submit {
-  font-size: 1.1rem;
-  padding: 1em 0.5em;
-}
-
 .login-id,
 .login-pw {
   background-color: rgba(211, 211, 211, 0.363);
@@ -28,19 +30,14 @@
 }
 
 .login-submit {
+  font-size: 1.1rem;
+  padding: 1em 0.5em;
   background-color: #007aff;
   color: white;
   transition: background-color 200ms ease-in;
 }
 
-.login-form::after {
-  content: '또는';
-  margin: 1.5em 0;
-  text-align: center;
-  color: grey;
-}
-
-button:hover {
+.login-submit:hover {
   background-color: #007bffa1;
 }
 

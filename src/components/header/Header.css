@@ -1,10 +1,26 @@
-.header-link {
-  display: block;
+.header {
+  border-bottom: 1px solid grey;
+  background-color: white;
 }
 
-.header-logo {
-  display: block;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto 3em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.logo.header-logo {
+  width: 156px;
+  margin: auto 0;
+  padding: 0.75em;
+}
+
+@media screen and (max-width: 576px) {
+  .navbar.header-navbar {
+    display: none;
+  }
 }

@@ -1,0 +1,7 @@
+.menu {
+  display: flex;
+}
+
+.menu-item {
+  margin-right: 0.5em;
+}

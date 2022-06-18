@@ -1,10 +1,10 @@
-.login {
-  margin-bottom: 2em;
-}
-
 .login-form {
   display: flex;
   flex-direction: column;
+}
+
+.login-form input:focus {
+  border-color: #007aff;
 }
 
 .login-form::after {
@@ -39,17 +39,4 @@
 
 .login-submit:hover {
   background-color: #007bffa1;
-}
-
-.login-fb,
-.forget-pw {
-  display: block;
-  text-align: center;
-  color: #3c507a;
-  margin: 1.5em 0;
-}
-
-.login-fb {
-  font-size: 1.25rem;
-  font-weight: 700;
 }

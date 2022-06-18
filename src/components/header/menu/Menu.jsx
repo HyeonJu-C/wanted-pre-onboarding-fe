@@ -1,23 +1,17 @@
 import React from 'react';
-import './Menu.css';
+import styles from './Menu.module.css';
 
 const Menu = (props) => {
-  const classes = 'menu ' + props.className;
+  const classes = props.className;
   return (
-    <ul className={classes}>
-      <li className="menu-item">
+    <ul className={`${classes} ${styles.menu}`}>
+      <li className={styles['menu-item']}>
         <a href="#">Home</a>
       </li>
-      <li className="menu-item">
+      <li className={styles['menu-item']}>
         <a href="#">DM</a>
       </li>
-      <li className="menu-item">
-        <a href="#">Plus</a>
-      </li>
-      <li className="menu-item">
-        <a href="#">Like</a>
-      </li>
-      <li className="menu-item">
+      <li className={styles['menu-item']}>
         <a href="#">Logout</a>
       </li>
     </ul>

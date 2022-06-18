@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
 }
 
+button {
+  background-color: transparent;
+}
+
  button:hover {
   cursor: pointer;
  }
@@ -26,6 +30,11 @@ const GlobalStyles = createGlobalStyle`
   overflow: hidden;
   opacity: 0;
  }
+
+ .container {
+  width: 100%;
+  max-width: 576px;
+}
 `;
 
 export default GlobalStyles;

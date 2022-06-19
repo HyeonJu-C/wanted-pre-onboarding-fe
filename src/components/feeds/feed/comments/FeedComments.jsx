@@ -6,9 +6,13 @@ const FeedComments = (props) => {
   return (
     <section className={styles.comments}>
       <ul>
-        <Comment />
-        <Comment />
-        <Comment />
+        {props.comments.map((comment) => (
+          <Comment
+            key={comment.key}
+            userName={comment.userName}
+            contents={comment.contents}
+          />
+        ))}
       </ul>
     </section>
   );

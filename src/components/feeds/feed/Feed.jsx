@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FeedComments from './comments/FeedComments';
 import CommentInput from './comments/input/CommentInput';
 import FeedControls from './controls/FeedControls';
 import styles from './Feed.module.css';
 
 const Feed = (props) => {
+  const [comments, setComments] = useState([]);
+
+  const addCommentHandler = (comment) => {
+    comment.key = Math.random().toString();
+    setComments((prev) => [comment, ...prev]);
+  };
+
   return (
     <li className={styles.feed}>
       <section className={styles.header}>
@@ -26,8 +33,8 @@ const Feed = (props) => {
         alt="feed image"
       />
       <FeedControls />
-      <FeedComments />
-      <CommentInput />
+      {comments.length > 0 && <FeedComments comments={comments} />}
+      <CommentInput commentHandler={addCommentHandler} />
     </li>
   );
 };

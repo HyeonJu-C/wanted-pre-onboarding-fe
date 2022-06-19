@@ -1,0 +1,19 @@
+{
+  "feeds": [
+    {
+      "id": "wanted",
+      "image": "https://source.unsplash.com/random/600x500",
+      "contents": "hello, world! beautiful sunset!"
+    },
+    {
+      "id": "pre-onboarding",
+      "image": "https://source.unsplash.com/random/900x500",
+      "contents": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Et non reiciendis nemo soluta possimus quae sunt expedita illum distinctio, accusantium voluptatum ullam. Possimus tempore iste nulla sequi ea?"
+    },
+    {
+      "id": "hyeonju",
+      "image": "https://source.unsplash.com/random/700x1080",
+      "contents": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, officiis. Et non reiciendis nemo soluta possimus quae sunt expedita illum distinctio, accusantium voluptatum ullam. Possimus tempore iste nulla sequi ea?"
+    }
+  ]
+}

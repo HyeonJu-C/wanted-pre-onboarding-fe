@@ -17,7 +17,7 @@ const Feed = (props) => {
       <section className={styles.header}>
         <div className={styles['header-left']}>
           <div className={styles.profile}></div>
-          <h1 className={styles.id}>fgsfgsdfhshsg</h1>
+          <h1 className={styles.id}>{props.userName}</h1>
         </div>
         <button
           className={styles.more}
@@ -27,11 +27,8 @@ const Feed = (props) => {
           ...
         </button>
       </section>
-      <img
-        className={styles.image}
-        src="https://source.unsplash.com/random/600x500"
-        alt="feed image"
-      />
+      <img className={styles.image} src={props.image} alt="feed image" />
+      <p className={styles.contents}>{props.contents}</p>
       <FeedControls />
       {comments.length > 0 && <FeedComments comments={comments} />}
       <CommentInput commentHandler={addCommentHandler} />

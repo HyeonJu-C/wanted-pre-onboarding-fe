@@ -3,10 +3,11 @@ import styles from './Login.module.css';
 import LoginForm from './loginForm/LoginForm';
 
 const Login = (props) => {
-  const [logInState, setLogInState] = useState(false);
+  // const [logInState, setLogInState] = useState(false);
   const onLoginHandler = (id, pw) => {
-    localStorage.setItem('isLoggedIn', '1');
-    setLogInState(true);
+    props.onLogin(id, pw);
+    // localStorage.setItem('isLoggedIn', '1');
+    // setLogInState(true);
   };
 
   return (

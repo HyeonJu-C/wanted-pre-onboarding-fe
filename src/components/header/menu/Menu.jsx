@@ -4,7 +4,7 @@ import styles from './Menu.module.css';
 const Menu = (props) => {
   const classes = props.className;
   const logoutHandler = () => {
-    localStorage.removeItem('isLoggedIn');
+    props.onLogout();
   };
 
   return (

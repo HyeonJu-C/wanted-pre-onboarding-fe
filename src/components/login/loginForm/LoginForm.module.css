@@ -3,10 +3,6 @@
   flex-direction: column;
 }
 
-.login-form input:focus {
-  border-color: #007aff;
-}
-
 .login-form::after {
   content: '또는';
   margin: 1.5em 0;
@@ -29,14 +25,36 @@
   border: 1px solid grey;
 }
 
+.login-id.valid,
+.login-pw.valid {
+  background-color: #27a8434b;
+  border: 1px solid #27a844;
+}
+
+.login-id.invalid,
+.login-pw.invalid {
+  background-color: #dc35463a;
+  border: 1px solid #dc3546;
+}
+
 .login-submit {
   font-size: 1.1rem;
   padding: 1em 0.5em;
-  background-color: #007aff;
+  background-color: #007bffa1;
   color: white;
-  transition: background-color 200ms ease-in;
 }
 
 .login-submit:hover {
+  cursor: default;
+}
+
+.login-submit.valid {
+  cursor: pointer;
+  background-color: #007aff;
+  transition: all 200ms ease-in;
+}
+
+.login-submit.valid:hover {
+  cursor: pointer;
   background-color: #007bffa1;
 }

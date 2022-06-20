@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './Menu.module.css';
+import AuthContext from '../../../context/auth';
 
 const Menu = (props) => {
   const classes = props.className;
-  const logoutHandler = () => {
-    props.onLogout();
-  };
+  const context = useContext(AuthContext);
 
   return (
     <ul className={`${classes} ${styles.menu}`}>
@@ -15,7 +14,7 @@ const Menu = (props) => {
       <li className={styles['menu-item']}>
         <a href="#">DM</a>
       </li>
-      <li onClick={logoutHandler} className={styles['menu-item']}>
+      <li onClick={context.onLogout} className={styles['menu-item']}>
         <a href="#">Logout</a>
       </li>
     </ul>

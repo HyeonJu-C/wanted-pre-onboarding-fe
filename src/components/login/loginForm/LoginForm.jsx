@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styles from './LoginForm.module.css';
+import AuthContext from '../../../context/auth';
+import { useContext } from 'react';
 
 const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
 const validPassword = new RegExp(
@@ -11,6 +13,7 @@ const LoginForm = (props) => {
   const pwElement = useRef();
   const [idState, setIdState] = useState({ value: '', isValid: null });
   const [pwState, setPwState] = useState({ value: '', isValid: null });
+  const context = useContext(AuthContext);
 
   const checkIdValid = (input) => {
     console.log(validEmail.test(input));
@@ -25,7 +28,7 @@ const LoginForm = (props) => {
   const onSubmitHandler = (e) => {
     idElement.current.value = '';
     pwElement.current.value = '';
-    props.onLogin(idState.value, pwState.value);
+    context.onLogin(idState.value, pwState.value);
   };
 
   const idChangeHandler = (e) => {

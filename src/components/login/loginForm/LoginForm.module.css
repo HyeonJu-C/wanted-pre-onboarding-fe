@@ -21,7 +21,7 @@
 
 .login-id,
 .login-pw {
-  background-color: rgba(211, 211, 211, 0.363);
+  background-color: rgba(0, 0, 0, 0.05);
   border: 1px solid grey;
 }
 

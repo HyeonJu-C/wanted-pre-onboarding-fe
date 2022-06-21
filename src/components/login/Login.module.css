@@ -11,6 +11,13 @@
 }
 
 .login-fb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.login-fb span:first-child {
+  margin-right: 0.25em;
 }

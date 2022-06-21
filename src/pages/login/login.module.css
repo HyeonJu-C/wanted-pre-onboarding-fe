@@ -1,28 +1,28 @@
-.render {
+.login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  background-color: white;
-  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
-.render-login {
+.login {
   border: 1px solid gray;
   border-radius: 4px;
   padding: 1.5em;
   margin-bottom: 2em;
   width: 100%;
   max-width: 576px;
+  background-color: white;
 }
 
-.render-login .render-logo img {
+.login .login-logo img {
   max-width: 300px;
   margin: 0 auto 1em;
 }
 
 @media screen and (min-width: 576px) {
-  .render {
+  .login-page {
     padding: 1em 2em 2em;
   }
 }

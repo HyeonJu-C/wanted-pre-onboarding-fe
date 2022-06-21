@@ -27,7 +27,11 @@ const Feed = (props) => {
           ...
         </button>
       </section>
-      <img className={styles.image} src={props.image} alt="feed image" />
+      <img
+        className={styles.image}
+        src={props.image}
+        alt={`${props.userName}의 피드 이미지`}
+      />
       <p className={styles.contents}>{props.contents}</p>
       <FeedControls />
       {comments.length > 0 && <FeedComments comments={comments} />}

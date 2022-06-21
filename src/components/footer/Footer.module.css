@@ -17,11 +17,16 @@
 }
 
 .download-item {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   color: white;
   background-color: black;
-  border-radius: 4px;
-  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.download-item span:first-child {
+  margin-right: 0.5em;
 }
 
 @media screen and (min-width: 576px) {

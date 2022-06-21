@@ -1,4 +1,7 @@
 import React from 'react';
+import LikeIcon from '../../../icons/LikeIcon';
+import ChatIcon from '../../../icons/ChatIcon';
+import PlaneIcon from '../../../icons/PlaneIcon';
 import styles from './FeedControls.module.css';
 
 const FeedControls = (props) => {
@@ -10,17 +13,24 @@ const FeedControls = (props) => {
             className={`${styles.button} ${styles.like}`}
             type="button"
             aria-label="좋아요"
-          ></button>
+          >
+            {' '}
+            <LikeIcon size="24" />
+          </button>
           <button
             className={`${styles.button} ${styles.comment}`}
             type="button"
             aria-label="댓글 남기기"
-          ></button>
+          >
+            <ChatIcon size="24" />
+          </button>
           <button
             className={`${styles.button} ${styles.dm}`}
             type="button"
             aria-label="DM 전송하기"
-          ></button>
+          >
+            <PlaneIcon size="24" />
+          </button>
         </div>
         <button
           className={`${styles.button} ${styles.bookmark}`}

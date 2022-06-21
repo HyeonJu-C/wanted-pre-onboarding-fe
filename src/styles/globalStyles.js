@@ -30,11 +30,6 @@ button {
   overflow: hidden;
   opacity: 0;
  }
-
- .container {
-  width: 100%;
-  max-width: 576px;
-}
 `;
 
 export default GlobalStyles;

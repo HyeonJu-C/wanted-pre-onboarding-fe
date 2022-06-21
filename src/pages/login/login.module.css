@@ -2,8 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
   background-color: rgba(0, 0, 0, 0.05);
+  width: 100%;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 576px;
 }
 
 .login {

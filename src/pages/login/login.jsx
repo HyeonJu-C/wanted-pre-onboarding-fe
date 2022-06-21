@@ -7,14 +7,16 @@ import Register from '../../components/register/Register';
 
 const LoginPage = (props) => {
   return (
-    <section className={`${styles['login-page']} container`}>
-      <h1 className="sr-only">로그인, 계정 만들기, 앱 다운로드하기</h1>
-      <div className={styles['login']}>
-        <Logo className={styles['login-logo']} />
-        <Login />
+    <section className={`${styles['login-page']}`}>
+      <div className={styles.container}>
+        <h1 className="sr-only">로그인, 계정 만들기, 앱 다운로드하기</h1>
+        <div className={styles['login']}>
+          <Logo className={styles['login-logo']} />
+          <Login />
+        </div>
+        <Register />
+        <Footer />
       </div>
-      <Register />
-      <Footer />
     </section>
   );
 };

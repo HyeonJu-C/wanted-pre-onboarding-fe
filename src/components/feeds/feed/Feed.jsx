@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import FeedComments from './comments/FeedComments';
 import CommentInput from './comments/input/CommentInput';
 import FeedControls from './controls/FeedControls';
@@ -6,11 +6,22 @@ import styles from './Feed.module.css';
 
 const Feed = (props) => {
   const [comments, setComments] = useState([]);
-
   const addCommentHandler = (comment) => {
     comment.key = Math.random().toString();
     setComments((prev) => [comment, ...prev]);
   };
+
+  const imageRef = useRef();
+  const [isImageLoaded, setImageLoad] = useState(false);
+  const onLoadHandler = () => {
+    if (imageRef.current && imageRef.current.complete) {
+      setImageLoad(true);
+    }
+  };
+
+  useEffect(() => {
+    onLoadHandler();
+  }, []);
 
   return (
     <li className={styles.feed}>
@@ -31,11 +42,17 @@ const Feed = (props) => {
         className={styles.image}
         src={props.image}
         alt={`${props.userName}의 피드 이미지`}
+        ref={imageRef}
+        onLoad={onLoadHandler}
       />
-      <p className={styles.contents}>{props.contents}</p>
-      <FeedControls />
-      {comments.length > 0 && <FeedComments comments={comments} />}
-      <CommentInput commentHandler={addCommentHandler} />
+      {isImageLoaded && (
+        <>
+          <p className={styles.contents}>{props.contents}</p>
+          <FeedControls />
+          {comments.length > 0 && <FeedComments comments={comments} />}
+          <CommentInput commentHandler={addCommentHandler} />
+        </>
+      )}
     </li>
   );
 };

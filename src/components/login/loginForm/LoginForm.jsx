@@ -25,7 +25,7 @@ const LoginForm = (props) => {
   };
 
   const onSubmitHandler = (e) => {
-    idValid && pwValid && context.onLogin();
+    idValid && pwValid && context.onLogin(idValue);
   };
 
   const idChangeHandler = (e) => {

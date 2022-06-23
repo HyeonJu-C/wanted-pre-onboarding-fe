@@ -4,14 +4,16 @@ import styles from './CommentInput.module.css';
 
 const CommentInput = (props) => {
   const commentInput = useRef();
+
   const submitHandler = (e) => {
     e.preventDefault();
 
     const comment = commentInput.current.value;
-    props.commentHandler({
-      userName: 'qtre',
-      contents: comment,
-    });
+    comment.trim().length > 0 &&
+      props.commentHandler({
+        userName: localStorage.getItem('id'),
+        contents: comment,
+      });
 
     commentInput.current.value = '';
   };

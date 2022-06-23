@@ -6,6 +6,7 @@ import styles from './Feed.module.css';
 
 const Feed = (props) => {
   const [comments, setComments] = useState([]);
+
   const addCommentHandler = (comment) => {
     comment.key = Math.random().toString();
     setComments((prev) => [comment, ...prev]);

@@ -1,7 +1,6 @@
-import React, { useState, useRef } from 'react';
-import styles from './LoginForm.module.css';
+import React, { useState, useRef, useContext, useEffect } from 'react';
 import AuthContext from '../../../context/auth';
-import { useContext } from 'react';
+import styles from './LoginForm.module.css';
 
 const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
 const validPassword = new RegExp(
@@ -11,37 +10,44 @@ const validPassword = new RegExp(
 const LoginForm = (props) => {
   const idElement = useRef();
   const pwElement = useRef();
-  const [idState, setIdState] = useState({ value: '', isValid: null });
-  const [pwState, setPwState] = useState({ value: '', isValid: null });
+  const [idValid, setIdValid] = useState(null);
+  const [pwValid, setPwValid] = useState(null);
+  const [idValue, setIdValue] = useState(null);
+  const [pwValue, setPwValue] = useState(null);
   const context = useContext(AuthContext);
 
   const checkIdValid = (input) => {
-    console.log(validEmail.test(input));
     return validEmail.test(input);
   };
 
   const checkPwValid = (input) => {
-    console.log(validPassword.test(input));
     return validPassword.test(input);
   };
 
   const onSubmitHandler = (e) => {
-    idElement.current.value = '';
-    pwElement.current.value = '';
-    context.onLogin(idState.value, pwState.value);
+    idValid && pwValid && context.onLogin();
   };
 
   const idChangeHandler = (e) => {
-    const idInput = e.target.value;
-    const idValid = checkIdValid(idInput);
-    setIdState({ value: idInput, isValid: idValid });
+    setIdValue(e.target.value);
   };
 
   const pwChangeHandler = (e) => {
-    const pwInput = e.target.value;
-    const pwValid = checkPwValid(pwInput);
-    setPwState({ value: pwInput, isValid: pwValid });
+    setPwValue(e.target.value);
   };
+
+  useEffect(() => {
+    const check = setTimeout(() => {
+      console.log('checking');
+      const idCheckResult = idValue ? checkIdValid(idValue) : null;
+      const pwCheckResult = pwValue ? checkPwValid(pwValue) : null;
+      setIdValid(idCheckResult);
+      setPwValid(pwCheckResult);
+    }, 500);
+    return () => {
+      clearTimeout(check);
+    };
+  }, [idValue, pwValue]);
 
   return (
     <form className={styles['login-form']} onSubmit={onSubmitHandler}>
@@ -50,8 +56,8 @@ const LoginForm = (props) => {
         name="id"
         id="id"
         className={`${styles['login-id']} ${
-          idState.isValid === false ? styles['invalid'] : ''
-        }  ${idState.isValid === true ? styles['valid'] : ''}`}
+          idValid === false ? styles['invalid'] : ''
+        }  ${idValid ? styles['valid'] : ''}`}
         placeholder="전화번호, 사용자 이름 또는 이메일"
         required
         onChange={idChangeHandler}
@@ -62,8 +68,8 @@ const LoginForm = (props) => {
         name="password"
         id="password"
         className={`${styles['login-pw']} ${
-          pwState.isValid === false ? styles['invalid'] : ''
-        } ${pwState.isValid === true ? styles['valid'] : ''}`}
+          pwValid === false ? styles['invalid'] : ''
+        } ${pwValid ? styles['valid'] : ''}`}
         placeholder="비밀번호"
         required
         onChange={pwChangeHandler}
@@ -72,11 +78,9 @@ const LoginForm = (props) => {
       <button
         type="submit"
         className={`${styles['login-submit']} ${
-          idState.isValid && pwState.isValid
-            ? styles['valid']
-            : styles['invalid']
+          idValid && pwValid ? styles['valid'] : styles['invalid']
         }`}
-        disabled={!idState.isValid || !pwState.isValid}
+        disabled={!idValid || !pwValid}
       >
         로그인
       </button>

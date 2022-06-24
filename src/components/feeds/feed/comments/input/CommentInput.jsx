@@ -10,9 +10,9 @@ const CommentInput = (props) => {
 
     const comment = commentInput.current.value;
     comment.trim().length > 0 &&
-      props.commentHandler({
+      props.onAddComment({
         userName: localStorage.getItem('id'),
-        contents: comment,
+        contents: comment.trim(),
       });
 
     commentInput.current.value = '';

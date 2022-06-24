@@ -3,6 +3,8 @@ import FeedComments from './comments/FeedComments';
 import CommentInput from './comments/input/CommentInput';
 import FeedControls from './controls/FeedControls';
 import styles from './Feed.module.css';
+import FeedHeader from './header/FeedHeader';
+import FeedMain from './main/FeedMain';
 
 const Feed = (props) => {
   const [comments, setComments] = useState([]);
@@ -12,48 +14,16 @@ const Feed = (props) => {
     setComments((prev) => [comment, ...prev]);
   };
 
-  const imageRef = useRef();
-  const [isImageLoaded, setImageLoad] = useState(false);
-  const onLoadHandler = () => {
-    if (imageRef.current && imageRef.current.complete) {
-      setImageLoad(true);
-    }
-  };
-
-  useEffect(() => {
-    onLoadHandler();
-  }, []);
-
   return (
-    <li className={styles.feed}>
-      <section className={styles.header}>
-        <div className={styles['header-left']}>
-          <div className={styles.profile}></div>
-          <h1 className={styles.id}>{props.userName}</h1>
-        </div>
-        <button
-          className={styles.more}
-          type="button"
-          aria-label="피드에 대한 더 많은 정보를 볼 수 있습니다"
-        >
-          ...
-        </button>
-      </section>
-      <img
-        className={styles.image}
-        src={props.image}
-        alt={`${props.userName}의 피드 이미지`}
-        ref={imageRef}
-        onLoad={onLoadHandler}
+    <li className={styles.feed} key={props.id}>
+      <FeedHeader userName={props.userName} />
+      <FeedMain
+        userName={props.userName}
+        contents={props.contents}
+        image={props.image}
       />
-      {isImageLoaded && (
-        <>
-          <p className={styles.contents}>{props.contents}</p>
-          <FeedControls />
-          {comments.length > 0 && <FeedComments comments={comments} />}
-          <CommentInput commentHandler={addCommentHandler} />
-        </>
-      )}
+      {comments.length > 0 && <FeedComments comments={comments} />}
+      <CommentInput onAddComment={addCommentHandler} />
     </li>
   );
 };

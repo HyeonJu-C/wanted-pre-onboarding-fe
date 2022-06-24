@@ -11,21 +11,16 @@ const Feeds = (props) => {
     sendRequest({ url: 'data/data.json' }, (data) => setFeeds([...data.feeds]));
   }, [sendRequest]);
 
-  const getCommentsHandler = (comments) => {
-    return [comments];
-  };
-
   return (
     <ul className={styles.feeds}>
       {!isLoading &&
         !error &&
         feeds.map((item) => (
           <Feed
-            key={Math.random().toString()}
+            key={item.id}
             userName={item.id}
             contents={item.contents}
             image={item.image}
-            comments={getCommentsHandler}
           />
         ))}
       {error && <h2>{error}</h2>}

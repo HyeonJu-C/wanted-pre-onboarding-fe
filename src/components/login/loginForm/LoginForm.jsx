@@ -1,62 +1,45 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthContext from '../../../context/auth';
+import useValidation from '../../../hooks/use-validation';
 import styles from './LoginForm.module.css';
 
-const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
-const validPassword = new RegExp(
-  '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})'
-);
-
 const LoginForm = (props) => {
-  const [idValid, setIdValid] = useState(null);
-  const [pwValid, setPwValid] = useState(null);
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
   const context = useContext(AuthContext);
-
-  const checkIdValid = (input) => {
-    return validEmail.test(input);
-  };
-
-  const checkPwValid = (input) => {
-    return validPassword.test(input);
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    idValid && pwValid && context.onLogin(idValue);
-  };
+  const { checkValid } = useValidation();
 
   const idChangeHandler = (e) => {
     setIdValue(e.target.value);
   };
-
   const pwChangeHandler = (e) => {
     setPwValue(e.target.value);
   };
 
-  useEffect(() => {
-    const check = setTimeout(() => {
-      const idCheckResult = idValue ? checkIdValid(idValue) : null;
-      const pwCheckResult = pwValue ? checkPwValid(pwValue) : null;
-      setIdValid(idCheckResult);
-      setPwValid(pwCheckResult);
-    }, 500);
-    return () => {
-      clearTimeout(check);
-    };
-  }, [idValue, pwValue]);
+  const isIdValid = checkValid(
+    idValue,
+    new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$')
+  );
+  const isPwValid = checkValid(
+    pwValue,
+    new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})')
+  );
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    isIdValid && isPwValid && context.onLogin(idValue);
+  };
 
   const idClasses = `${styles['login-id']} ${
-    idValid === false ? styles['invalid'] : ''
-  }  ${idValid ? styles['valid'] : ''}`;
+    isIdValid === false ? styles['invalid'] : ''
+  }  ${isIdValid ? styles['valid'] : ''}`;
 
   const pwClasses = `${styles['login-pw']} ${
-    pwValid === false ? styles['invalid'] : ''
-  }  ${pwValid ? styles['valid'] : ''}`;
+    isPwValid === false ? styles['invalid'] : ''
+  }  ${isPwValid ? styles['valid'] : ''}`;
 
   const submitBtnClasses = `${styles['login-submit']} ${
-    idValid && pwValid ? styles['valid'] : styles['invalid']
+    isIdValid && isPwValid ? styles['valid'] : styles['invalid']
   }`;
 
   return (
@@ -84,7 +67,7 @@ const LoginForm = (props) => {
       <button
         type="submit"
         className={submitBtnClasses}
-        disabled={!idValid || !pwValid}
+        disabled={!isIdValid || !isPwValid}
       >
         로그인
       </button>

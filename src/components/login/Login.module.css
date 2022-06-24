@@ -6,7 +6,7 @@
 .forget-pw {
   display: block;
   text-align: center;
-  color: #3c507a;
+  color: var(--color-navy);
   margin: 1.5em 0;
 }
 

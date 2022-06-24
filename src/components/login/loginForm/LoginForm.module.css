@@ -21,26 +21,26 @@
 
 .login-id,
 .login-pw {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 1px solid grey;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
 }
 
 .login-id.valid,
 .login-pw.valid {
-  background-color: #27a8434b;
-  border: 1px solid #27a844;
+  background-color: var(--color-background-green);
+  border: 1px solid var(--color-green);
 }
 
 .login-id.invalid,
 .login-pw.invalid {
-  background-color: #dc35463a;
-  border: 1px solid #dc3546;
+  background-color: var(--color-background-red);
+  border: 1px solid var(--color-red);
 }
 
 .login-submit {
   font-size: 1.1rem;
   padding: 1em 0.5em;
-  background-color: #007bffa1;
+  background-color: var(--color-background-blue);
   color: white;
 }
 
@@ -50,11 +50,11 @@
 
 .login-submit.valid {
   cursor: pointer;
-  background-color: #007aff;
+  background-color: var(--color-blue);
   transition: all 200ms ease-in;
 }
 
 .login-submit.valid:hover {
   cursor: pointer;
-  background-color: #007bffa1;
+  background-color: var(--color-background-blue);
 }

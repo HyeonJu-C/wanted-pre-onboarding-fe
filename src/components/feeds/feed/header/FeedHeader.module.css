@@ -18,7 +18,7 @@
   max-width: 2rem;
   height: 100%;
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: var(--color-border);
   margin-right: 0.5em;
 }
 

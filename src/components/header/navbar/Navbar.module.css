@@ -1,5 +1,5 @@
 .navbar-input {
-  background-color: rgba(211, 211, 211, 0.363);
+  background-color: var(--color-background);
   padding: 0.75em 1.5em;
   border-radius: 0.5em;
 }

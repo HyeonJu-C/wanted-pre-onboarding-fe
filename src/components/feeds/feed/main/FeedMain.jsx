@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import FeedControls from '../controls/FeedControls';
+import FeedControls from './controls/FeedControls';
 import styles from './FeedMain.module.css';
 
 const FeedMain = (props) => {

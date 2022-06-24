@@ -19,10 +19,12 @@
 .download-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: white;
   background-color: black;
   border-radius: 0.5em;
-  padding: 0.5em;
+  padding: 0.5em 0.75em;
+  font-size: 0.8rem;
 }
 
 .download-item span:first-child {
@@ -33,5 +35,8 @@
   .footer-download {
     display: flex;
     justify-content: space-evenly;
+  }
+  .download-item {
+    font-size: 1rem;
   }
 }

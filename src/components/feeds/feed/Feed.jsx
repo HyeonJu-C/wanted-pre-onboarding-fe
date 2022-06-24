@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import FeedComments from './comments/FeedComments';
 import CommentInput from './comments/input/CommentInput';
-import FeedControls from './controls/FeedControls';
 import styles from './Feed.module.css';
 import FeedHeader from './header/FeedHeader';
 import FeedMain from './main/FeedMain';

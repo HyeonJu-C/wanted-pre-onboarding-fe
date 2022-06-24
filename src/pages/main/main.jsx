@@ -6,7 +6,7 @@ import styles from './main.module.css';
 const MainPage = (props) => {
   return (
     <main>
-      <Header className="main-header" />
+      <Header />
       <Feeds />
     </main>
   );

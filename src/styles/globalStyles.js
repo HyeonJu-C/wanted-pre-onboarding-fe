@@ -3,6 +3,18 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
  ${reset}
+ :root {
+--color-background: rgba(0, 0, 0, 0.05);
+--color-border: rgb(211,211,211);
+--color-navy:#3c507a;
+--color-blue:#007aff;
+--color-background-blue:#007bffa1;
+--color-red:#dc3546;
+--color-background-red:#dc35463a;
+--color-green:#27a844;
+--color-background-green: #27a8434b;
+ }
+
  * {
    box-sizing:border-box;
    outline:none;

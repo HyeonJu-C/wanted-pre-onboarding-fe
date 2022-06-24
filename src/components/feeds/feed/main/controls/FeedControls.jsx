@@ -1,7 +1,7 @@
 import React from 'react';
-import LikeIcon from '../../../icons/LikeIcon';
-import ChatIcon from '../../../icons/ChatIcon';
-import PlaneIcon from '../../../icons/PlaneIcon';
+import LikeIcon from '../../../../icons/LikeIcon';
+import ChatIcon from '../../../../icons/ChatIcon';
+import PlaneIcon from '../../../../icons/PlaneIcon';
 import styles from './FeedControls.module.css';
 
 const FeedControls = (props) => {
@@ -10,7 +10,7 @@ const FeedControls = (props) => {
       <div className={styles.buttons}>
         <div className={styles['buttons-left']}>
           <button
-            className={`${styles.button} ${styles.like}`}
+            className={`${styles.button}`}
             type="button"
             aria-label="좋아요"
           >
@@ -18,14 +18,14 @@ const FeedControls = (props) => {
             <LikeIcon size="24" />
           </button>
           <button
-            className={`${styles.button} ${styles.comment}`}
+            className={`${styles.button}`}
             type="button"
             aria-label="댓글 남기기"
           >
             <ChatIcon size="24" />
           </button>
           <button
-            className={`${styles.button} ${styles.dm}`}
+            className={`${styles.button}`}
             type="button"
             aria-label="DM 전송하기"
           >
@@ -33,7 +33,7 @@ const FeedControls = (props) => {
           </button>
         </div>
         <button
-          className={`${styles.button} ${styles.bookmark}`}
+          className={`${styles.button}`}
           type="button"
           aria-label="북마크하기"
         ></button>

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import AuthContext from '../../../context/auth';
 import useValidation from '../../../hooks/use-validation';
 import styles from './LoginForm.module.css';
@@ -43,35 +44,42 @@ const LoginForm = (props) => {
   }`;
 
   return (
-    <form className={styles['login-form']} onSubmit={submitHandler}>
-      <input
-        type="text"
-        name="id"
-        id="id"
-        className={idClasses}
-        placeholder="전화번호, 사용자 이름 또는 이메일"
-        required
-        onChange={idChangeHandler}
-        value={idValue}
-      />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        className={pwClasses}
-        placeholder="비밀번호"
-        required
-        onChange={pwChangeHandler}
-        value={pwValue}
-      />
-      <button
-        type="submit"
-        className={submitBtnClasses}
-        disabled={!isIdValid || !isPwValid}
-      >
-        로그인
-      </button>
-    </form>
+    <>
+      <form className={styles['login-form']} onSubmit={submitHandler}>
+        <input
+          type="text"
+          name="id"
+          id="id"
+          className={idClasses}
+          placeholder="전화번호, 사용자 이름 또는 이메일"
+          required
+          onChange={idChangeHandler}
+          value={idValue}
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className={pwClasses}
+          placeholder="비밀번호"
+          required
+          onChange={pwChangeHandler}
+          value={pwValue}
+        />
+        <button
+          type="submit"
+          className={submitBtnClasses}
+          disabled={!isIdValid || !isPwValid}
+        >
+          로그인
+        </button>
+      </form>
+      {context.isLoggedIn && (
+        <Routes>
+          <Route path="*" element={<Navigate to="/main" replace />} />
+        </Routes>
+      )}
+    </>
   );
 };
 

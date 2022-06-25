@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
 import AuthContext from '../../../context/auth';
 import HomeIcon from '../../icons/HomeIcon';
@@ -22,9 +23,9 @@ const Menu = (props) => {
         </a>
       </li>
       <li onClick={context.onLogout} className={styles['menu-item']}>
-        <a href="#">
+        <Link to="/">
           <LogoutIcon size="24" />
-        </a>
+        </Link>
       </li>
     </ul>
   );

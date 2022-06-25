@@ -5,10 +5,8 @@ import Menu from './menu/Menu';
 import Navbar from './navbar/Navbar';
 
 const Header = (props) => {
-  const classes = props.className;
-
   return (
-    <header className={`${classes} ${styles['header']}`}>
+    <header className={`${styles['header']}`}>
       <div className={styles['header-container']}>
         <Logo className={`${styles['header-logo']}`} />
         <Navbar className={styles['header-navbar']} />

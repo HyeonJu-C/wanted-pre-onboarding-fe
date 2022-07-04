@@ -1,0 +1,12 @@
+.image {
+  display: block;
+  width: 100%;
+}
+
+.contents {
+  text-align: left;
+  width: 100%;
+  padding: 1em;
+  font-size: 1.1rem;
+  line-height: 1.25;
+}

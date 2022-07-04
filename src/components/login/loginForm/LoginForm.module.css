@@ -1,0 +1,60 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form::after {
+  content: '또는';
+  margin: 1.5em 0;
+  text-align: center;
+  color: grey;
+}
+
+.login-id,
+.login-pw,
+.login-submit {
+  padding: 1.5em 1em;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-bottom: 0.5em;
+}
+
+.login-id,
+.login-pw {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+}
+
+.login-id.valid,
+.login-pw.valid {
+  background-color: var(--color-background-green);
+  border: 1px solid var(--color-green);
+}
+
+.login-id.invalid,
+.login-pw.invalid {
+  background-color: var(--color-background-red);
+  border: 1px solid var(--color-red);
+}
+
+.login-submit {
+  font-size: 1.1rem;
+  padding: 1em 0.5em;
+  background-color: var(--color-background-blue);
+  color: white;
+}
+
+.login-submit:hover {
+  cursor: default;
+}
+
+.login-submit.valid {
+  cursor: pointer;
+  background-color: var(--color-blue);
+  transition: all 200ms ease-in;
+}
+
+.login-submit.valid:hover {
+  cursor: pointer;
+  background-color: var(--color-background-blue);
+}

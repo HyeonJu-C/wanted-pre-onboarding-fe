@@ -1,0 +1,42 @@
+.footer {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.footer-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+  font-size: 1.1rem;
+}
+
+.footer-download {
+  display: flex;
+  justify-content: space-around;
+}
+
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+  font-size: 0.8rem;
+}
+
+.download-item span:first-child {
+  margin-right: 0.5em;
+}
+
+@media screen and (min-width: 576px) {
+  .footer-download {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .download-item {
+    font-size: 1rem;
+  }
+}
